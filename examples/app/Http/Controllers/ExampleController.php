@@ -5,7 +5,7 @@ use Layout\Processor\ProcessorHtml;
 use Layout\Processor\ProcessorJson;
 
 
-class LayoutController extends Controller 
+class ExampleController extends Controller 
 {
 
     /**
@@ -25,7 +25,7 @@ class LayoutController extends Controller
      */
     public function html(Config $config, ProcessorHtml $processor)
     {
-        $config->load('layout_index');
+        $config->load('home');
 
         return $processor->run($config);
     }
@@ -38,7 +38,7 @@ class LayoutController extends Controller
      */
     public function json(Config $config, ProcessorJson $processor)
     {
-        $config->load('layout_index');
+        $config->load('home');
 
         return $processor->run($config);
     }
