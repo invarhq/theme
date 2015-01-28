@@ -1,0 +1,28 @@
+default: # Will be applied to all pages
+  page: # Root Element
+    _type: template
+    _template: page.phtml
+    head: # Html Head
+      _type: "document.head"
+      _title: "Default Title"
+      _meta: 
+          - http-equiv: "Content-Type"
+            content: "text/html; charset=utf-8"
+      _scripts:
+      # - js/common.js
+      _styles:
+        - href: "//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+          media: "screen"
+        - "css/common.css"
+    left: # left Sidebar container
+    right: # Right Sidebar container
+    content: # Content Container
+      main:
+        _type: text
+        _text: "Hello World!"
+home: # Will be applied only to page with "home" layout handle
+  page:
+    content:
+      main: # Extend main element and replace messafe
+        _type: text
+        _text: "Welcome to Home!"

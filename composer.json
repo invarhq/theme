@@ -1,0 +1,22 @@
+{
+    "name": "violetbrick/theme",
+    "description": "Theme System for Laravel Framework",
+    "license": "Creative Commons Attribution 4.0",
+    "require": {
+        "laravel/framework": "~5.0",
+        "league/flysystem": "~1.0",
+        "zendframework/zend-uri": "~2.3@dev",
+        "violetbrick/core": "dev-master",
+        "violetbrick/layout": "dev-master"
+    },
+    "authors": [
+        {
+            "name": "SergeyCherepanov",
+            "email": "sergey@cherepanov.org.ua"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {"Theme\\": "src/Theme"}
+    }
+}

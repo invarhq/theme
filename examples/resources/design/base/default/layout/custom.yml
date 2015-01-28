@@ -1,0 +1,11 @@
+default:
+  page:
+    left:
+      ltext: # Add textelement to left sidebar
+        _type: text
+        _text: "Left Sidebar Description"
+    right:
+      rtext: # Add text element to right sidebar
+        _type: text
+        _text: "Right Sidebar Description"
+
