@@ -54,7 +54,9 @@ class Head
      */
     protected function initializeMeta()
     {
-        foreach ($this['meta'] as $metaData) {
+        $meta = $this['meta'] ?: [];
+        
+        foreach ($meta as $metaData) {
             if (is_array($metaData) && !empty($metaData)) {
                 $metaElement = $this->createElement('meta');
                 foreach ($metaData as $key => $value) {
