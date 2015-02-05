@@ -171,16 +171,16 @@ class ServiceProvider extends ServiceProviderAbstract
         /** @var \Illuminate\Events\Dispatcher $eventDispatcher */
         $eventDispatcher = $this->app->make('Illuminate\Events\Dispatcher');
         
-        $eventDispatcher->listen('layout.initialize.factory.html', function (FactoryInterface $layoutFactory) {
-            $layoutFactory->register('template', 'Theme\Element\Type\Template', 'Theme\Element\Output\Html\Template');
-            $layoutFactory->register('text', 'Theme\Element\Type\Text', 'Theme\Element\Output\Html\Text');
-            $layoutFactory->register('document.head', 'Theme\Element\Type\Document\Head', 'Theme\Element\Output\Html\Document\Head');
-        });
+        $eventDispatcher->listen('layout.initialize.element.schema', function ($transport) {
+            /** @var \Illuminate\Contracts\Config\Repository $config */
+            $config = $this->app->make('Illuminate\Contracts\Config\Repository');
+            $schema = $transport['schema'];
 
-        $eventDispatcher->listen('layout.initialize.factory.json', function (FactoryInterface $layoutFactory) {
-            $layoutFactory->register('template', 'Theme\Element\Type\Template');
-            $layoutFactory->register('text', 'Theme\Element\Type\Text');
-            $layoutFactory->register('document.head', 'Theme\Element\Type\Document\Head', 'Layout\Element\Output\Json\JsonIgnore');
+            foreach ($config['theme.layout.element'] as $name => $elementConfig) {
+                $schema[$name] = $elementConfig;
+            }
+
+            $transport['schema'] = $schema;
         });
     }
 }
