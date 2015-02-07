@@ -9,7 +9,7 @@ class Meta
     use Singleton;
     
     protected $title;
-    protected $meta = array();
+    protected $meta = [];
 
     /**
      * @param array $data

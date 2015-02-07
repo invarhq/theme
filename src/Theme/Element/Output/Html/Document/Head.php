@@ -29,12 +29,6 @@ class Head
         $this->dom->appendChild($element);
         $this->dom->appendChild($this->dom->createTextNode("\n"));
     }
-    
-    public function initialize()
-    {
-        $this->setHiddenData('template', 'document/head.phtml');
-        $this->dom  = new DOMDocument();
-    }
 
     /**
      * Initialize page title tag
@@ -135,6 +129,9 @@ class Head
     
     public function toHtml()
     {
+        $this->setProtectedAttributes('template', 'document/head.phtml');
+        $this->dom  = new DOMDocument();
+        
         $this->initializeTitle();
         $this->initializeMeta();
         $this->initializeStyles();

@@ -2,19 +2,20 @@
 /** {license_text}  */
 namespace Theme\Element\Type;
 
+use Layout\Element\Type\DataTransportProtected;
+use Layout\Element\Type\DataTransportPublic;
 use Layout\Element\Type\TypeAbstract;
 
 class Template
     extends TypeAbstract
 {
     /**
-     * @return array
-     * @throws \Layout\Element\Type\TypeException
+     * @param DataTransportPublic $publicData
+     * @param DataTransportProtected $protectedData
+     * @return mixed|void
      */
-    protected function getHiddenData()
+    protected function process(DataTransportPublic $publicData, DataTransportProtected $protectedData)
     {
-        return $this->fill(array(), $this, array(
-            'template'
-        ));
+        
     }
 }

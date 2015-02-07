@@ -12,7 +12,7 @@ class Template
     public function toHtml()
     {
         $output = '';
-        if ($template = $this->getHiddenData('template')) {
+        if ($template = $this->getProtectedAttribute('template')) {
             $template = $this->backend->resolveTemplatePath($template);
             if ($template) {
                 ob_start();
