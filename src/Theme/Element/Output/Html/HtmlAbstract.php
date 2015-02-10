@@ -52,4 +52,22 @@ abstract class HtmlAbstract
     {
         return htmlspecialchars($value, ENT_COMPAT, 'UTF-8', false);
     }
+
+    /**
+     * @param string|null $key
+     * @param null $default
+     * @return mixed
+     */
+    public function old($key = null, $default = null)
+    {
+        return old($key, $default);
+    }
+
+    /**
+     * @return string
+     */
+    public function getCsrfToken()
+    {
+        return csrf_token();
+    }
 }
