@@ -61,16 +61,14 @@ class ServiceProvider extends ServiceProviderAbstract
         /** @var LayoutConfig $layoutConfig */
         $layoutConfig = $this->app->make('Layout\Config');
         $this->app->singleton('Layout\Config', function () use ($layoutConfig) {
+            $layoutConfig->setCacheEnabled($this->config->get('theme.cache_enabled'));
             $designDir      = $this->config->get('theme.filesystem.design');
             $basePackage    = 'base';
             $baseTheme      = 'default';
             $currentPackage = $this->config->get('theme.package');
             $defaultTheme   = $this->config->get('theme.theme.default');
             $currentTheme   = $this->config->get('theme.theme.current');
-
-//            /** @var \Layout\Config $config */
-//            $layoutConfig = new Config($this->app->make('Symfony\Component\Yaml\Parser'));
-
+            
             // Fallback to base theme
             if ($basePackage && $baseTheme) {
                 $layoutConfig->addConfigPath("{$designDir}/{$basePackage}/{$baseTheme}/layout");
@@ -176,7 +174,7 @@ class ServiceProvider extends ServiceProviderAbstract
             $config = $this->app->make('Illuminate\Contracts\Config\Repository');
             $schema = $transport['schema'];
 
-            foreach ($config['theme.layout.element'] as $name => $elementConfig) {
+            foreach ($config['layout.element'] as $name => $elementConfig) {
                 $schema[$name] = $elementConfig;
             }
 
