@@ -2,7 +2,7 @@
     "name": "invarhq/theme",
     "description": "Theme System for Laravel Framework",
     "keywords": ["laravel", "theme", "layout", "skin"],
-    "license": "Creative Commons Attribution 4.0",
+    "license": "CC-BY-4.0",
     "require": {
         "laravel/framework": "~5.0",
         "league/flysystem": "~1.0",
