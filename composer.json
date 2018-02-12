@@ -7,8 +7,8 @@
         "laravel/framework": "~5.0",
         "league/flysystem": "~1.0",
         "zendframework/zend-uri": "~2.3@dev",
-        "violetbrick/core": "dev-master",
-        "violetbrick/layout": "dev-master"
+        "invarhq/core": "dev-master",
+        "invarhq/layout": "dev-master"
     },
     "authors": [
         {
